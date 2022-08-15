@@ -1,4 +1,5 @@
 @use './abstracts/font';
+@use './abstracts/colors';
 
 *,
 *::before,
@@ -7,6 +8,7 @@
 	padding: 0;
 	margin: 0;
 }
+
 html,
 body {
 	font-family: font.$ff-base;
@@ -14,3 +16,104 @@ body {
 	font-weight: font.$fw-base;
 }
 
+h1 {
+	font-size: font.$fs-base;
+}
+
+.container {
+	min-width: 375px;
+	padding: 0.75rem;
+	overflow-x: hidden;
+	height: 100vh;
+}
+
+.container.th-1 {
+	background-color: colors.$bg-primary-th1;
+	.title,
+	.theme-title {
+		color: colors.$text-light-th1;
+	}
+	.theme-title {
+		font-size: calc(font.$fs-base * 0.6);
+	}
+}
+
+.title-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1rem;
+}
+
+.calc-result.th-1 {
+	display: inline-block;
+	background-color: colors.$bg-screen-th1;
+	color: colors.$text-light-th1;
+	height: 2.5rem;
+	width: 10.25rem;
+	margin: 0.5rem auto;
+	border-radius: 0.3rem;
+	padding: 0.5rem 1rem;
+}
+
+.btn-container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	padding: 1rem 0.5rem;
+	background-color: colors.$bg-toggle-th1;
+	border-radius: 0.3rem;
+	height: 13.5rem;
+	width: 100%;
+	justify-items: center;
+	align-items: center;
+}
+
+.btn {
+	display: block;
+	border-radius: 0.25rem;
+	height: 2rem;
+	width: 2rem;
+	padding: 0;
+	margin: 0 -2rem;
+	line-height: 2rem;
+	cursor: pointer;
+}
+
+.btn-num.th-1 {
+	background-color: colors.$key-bg-light-th1;
+	color: colors.$text-primary-th1;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-light-th1;
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-light-th1, white, 20%);
+	}
+}
+
+.btn-delete {
+	background-color: colors.$key-bg-dark-th1;
+	color: colors.$text-light-th1;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-dark-th1;
+	font-size: calc(font.$fs-base * 0.7);
+	font-weight: calc(font.$fw-base * 0.75);
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-dark-th1, white, 20%);
+	}
+}
+
+.btn-reset.th-1 {
+	background-color: colors.$key-bg-dark-th1;
+	color: colors.$text-light-th1;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-dark-th1;
+	font-size: calc(font.$fs-base * 0.7);
+	font-weight: calc(font.$fw-base * 0.75);
+	grid-column: span 2;
+	width: 4.25rem;
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-dark-th1, white, 20%);
+	}
+}

@@ -6,13 +6,14 @@ import { useState } from 'react'
 
 function App() {
 	const [screenValue, setScreenValue] = useState('')
+	const theme = 'th-1'
 	return (
 		<>
-			<Container>
-				<div className="title">
-					<h1>Calc</h1>
+			<Container theme={theme}>
+				<div className="title-container">
+					<h1 className="title">Calc</h1>
 					<div className="theme-selector-container">
-						<span>Theme</span>
+						<span className="theme-title">Theme</span>
 						<div className="theme-selector">
 							<span className="selector-one"></span>
 							<span className="selector-two"></span>
@@ -20,26 +21,51 @@ function App() {
 						</div>
 					</div>
 				</div>
-				<Screen value={screenValue} />
-				<ButtonContainer>
-					<Button value="Del" className="btn-op btn-delete" />
-					<Button value="1" className="btn-num" />
-					<Button value="2" className="btn-num" />
-					<Button value="3" className="btn-num" />
-					<Button value="4" className="btn-num" />
-					<Button value="5" className="btn-num" />
-					<Button value="6" className="btn-num" />
-					<Button value="7" className="btn-num" />
-					<Button value="8" className="btn-num" />
-					<Button value="9" className="btn-num" />
-					<Button value="0" className="btn-num btn-zero" />
-					<Button value="." className="btn-num btn-point" />
-					<Button value="+" className="btn-op btn-plus" />
-					<Button value="-" className="btn-op btn-minus" />
-					<Button value="/" className="btn-op btn-divide" />
-					<Button value="*" className="btn-op btn-multiply" />
-					<Button value="=" className="btn-op btn-equal" />
-					<Button value="Reset" className="btn-op btn-reset" />
+				<Screen value={screenValue} theme={theme} />
+				<ButtonContainer theme={theme}>
+					<Button value="7" className="btn-num" theme={theme} />
+					<Button value="8" className="btn-num" theme={theme} />
+					<Button value="9" className="btn-num" theme={theme} />
+					<Button value="DEL" className="btn-delete" theme={theme} />
+					<Button value="4" className="btn-num" theme={theme} />
+					<Button value="5" className="btn-num" theme={theme} />
+					<Button value="6" className="btn-num" theme={theme} />
+					<Button
+						value="+"
+						className="btn-num btn-plus"
+						theme={theme}
+					/>
+					<Button value="1" className="btn-num" theme={theme} />
+					<Button value="2" className="btn-num" theme={theme} />
+					<Button value="3" className="btn-num" theme={theme} />
+					<Button
+						value="-"
+						className="btn-num btn-minus"
+						theme={theme}
+					/>
+					<Button
+						value="."
+						className="btn-num btn-point"
+						theme={theme}
+					/>
+					<Button
+						value="0"
+						className="btn-num btn-zero"
+						theme={theme}
+					/>
+
+					<Button
+						value="/"
+						className="btn-num btn-divide"
+						theme={theme}
+					/>
+					<Button
+						value="x"
+						className="btn-num btn-multiply"
+						theme={theme}
+					/>
+					<Button value="Reset" className="btn-reset" theme={theme} />
+					<Button value="=" className="btn-equal" theme={theme} />
 				</ButtonContainer>
 			</Container>
 		</>
