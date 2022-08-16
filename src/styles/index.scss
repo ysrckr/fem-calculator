@@ -27,40 +27,28 @@ h1 {
 	height: 100vh;
 }
 
-.container.th-1 {
-	background-color: colors.$bg-primary-th1;
-	.title,
-	.theme-title {
-		color: colors.$text-light-th1;
-	}
-	.theme-title {
-		font-size: calc(font.$fs-base * 0.6);
-	}
-}
-
 .title-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 1rem;
+	.theme-title {
+		font-size: calc(font.$fs-base * 0.4) !important;
+	}
 }
 
-.calc-result.th-1 {
-	display: inline-block;
-	background-color: colors.$bg-screen-th1;
-	color: colors.$text-light-th1;
-	height: 2.5rem;
-	width: 10.25rem;
-	margin: 0.5rem auto;
-	border-radius: 0.3rem;
-	padding: 0.5rem 1rem;
+.theme-selector-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 5rem;
+	gap: 0.5rem;
 }
 
 .btn-container {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	padding: 1rem 0.5rem;
-	background-color: colors.$bg-toggle-th1;
 	border-radius: 0.3rem;
 	height: 13.5rem;
 	width: 100%;
@@ -79,6 +67,93 @@ h1 {
 	cursor: pointer;
 }
 
+/* Theme 1 */
+
+.container.th-1 {
+	background-color: colors.$bg-primary-th1;
+	.title,
+	.theme-title {
+		color: colors.$text-light-th1;
+	}
+}
+
+.title-container.th-1 {
+	.theme-selector {
+		background-color: colors.$bg-screen-th1;
+		height: 0.6rem;
+		width: 2.5rem;
+		border-radius: 3rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+
+		span {
+			background-color: transparent;
+			height: 0.45rem;
+			width: 0.45rem;
+			border-radius: 50%;
+			position: relative;
+			cursor: pointer;
+		}
+
+		.selector-one.active {
+			background-color: colors.$key-bg-toggle-th1;
+		}
+		.selector-two.active {
+			background-color: colors.$key-bg-toggle-th1;
+		}
+		.selector-three.active {
+			background-color: colors.$key-bg-toggle-th1;
+		}
+
+		.selector-one::after {
+			content: '1';
+			position: absolute;
+			top: -0.5rem;
+			left: 0;
+			right: 0;
+			font-size: 0.4rem;
+			text-align: center;
+			color: colors.$text-light-th1;
+		}
+		.selector-two::after {
+			content: '2';
+			position: absolute;
+			top: -0.5rem;
+			left: 0;
+			right: 0;
+			font-size: 0.4rem;
+			text-align: center;
+			color: colors.$text-light-th1;
+		}
+		.selector-three::after {
+			content: '3';
+			position: absolute;
+			top: -0.5rem;
+			left: 0;
+			right: 0;
+			font-size: 0.4rem;
+			text-align: center;
+			color: colors.$text-light-th1;
+		}
+	}
+}
+
+.calc-result.th-1 {
+	display: inline-block;
+	background-color: colors.$bg-screen-th1;
+	color: colors.$text-light-th1;
+	height: 2.5rem;
+	width: 10.25rem;
+	margin: 0.5rem auto;
+	border-radius: 0.3rem;
+	padding: 0.5rem 1rem;
+}
+
+.btn-container.th-1 {
+	background-color: colors.$bg-toggle-th1;
+}
+
 .btn-num.th-1 {
 	background-color: colors.$key-bg-light-th1;
 	color: colors.$text-primary-th1;
@@ -90,7 +165,7 @@ h1 {
 	}
 }
 
-.btn-delete {
+.btn-delete.th-1 {
 	background-color: colors.$key-bg-dark-th1;
 	color: colors.$text-light-th1;
 	text-align: center;
@@ -99,7 +174,7 @@ h1 {
 	font-weight: calc(font.$fw-base * 0.75);
 	&:hover,
 	&:focus {
-		background-color: mix(colors.$key-bg-dark-th1, white, 20%);
+		background-color: mix(colors.$key-bg-dark-th1, white, 80%);
 	}
 }
 
@@ -114,6 +189,330 @@ h1 {
 	width: 4.25rem;
 	&:hover,
 	&:focus {
-		background-color: mix(colors.$key-bg-dark-th1, white, 20%);
+		background-color: mix(colors.$key-bg-dark-th1, white, 80%);
 	}
+}
+
+.btn-equal.th-1 {
+	background-color: colors.$key-bg-toggle-th1;
+	color: colors.$text-light-th1;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-toggle-th1;
+	font-size: calc(font.$fs-base * 0.7);
+	font-weight: calc(font.$fw-base * 0.75);
+	grid-column: span 2;
+	width: 4.25rem;
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-toggle-th1, white, 80%);
+	}
+}
+
+.theme-selector.th-1 {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: colors.$bg-toggle-th1;
+	width: 2rem;
+	height: 0.25rem;
+}
+
+/* Theme 2 */
+
+.container.th-2 {
+	background-color: colors.$bg-primary-th2;
+	.title,
+	.theme-title {
+		color: colors.$text-primary-th2;
+	}
+}
+
+.title-container.th-2 {
+	.theme-selector {
+		background-color: colors.$bg-toggle-th2;
+		height: 0.6rem;
+		width: 2.5rem;
+		border-radius: 3rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+
+		span {
+			background-color: transparent;
+			height: 0.45rem;
+			width: 0.45rem;
+			border-radius: 50%;
+			position: relative;
+			cursor: pointer;
+		}
+
+		.selector-one.active {
+			background-color: colors.$key-bg-toggle-th2;
+		}
+		.selector-two.active {
+			background-color: colors.$key-bg-toggle-th2;
+		}
+		.selector-three.active {
+			background-color: colors.$key-bg-toggle-th2;
+		}
+
+		.selector-one::after {
+			content: '1';
+			position: absolute;
+			top: -0.5rem;
+			left: 0;
+			right: 0;
+			font-size: 0.4rem;
+			text-align: center;
+			color: colors.$text-primary-th2;
+		}
+		.selector-two::after {
+			content: '2';
+			position: absolute;
+			top: -0.5rem;
+			left: 0;
+			right: 0;
+			font-size: 0.4rem;
+			text-align: center;
+			color: colors.$text-primary-th2;
+		}
+		.selector-three::after {
+			content: '3';
+			position: absolute;
+			top: -0.5rem;
+			left: 0;
+			right: 0;
+			font-size: 0.4rem;
+			text-align: center;
+			color: colors.$text-primary-th2;
+		}
+	}
+}
+
+.calc-result.th-2 {
+	display: inline-block;
+	background-color: colors.$bg-screen-th2;
+	color: colors.$text-light-th2;
+	height: 2.5rem;
+	width: 10.25rem;
+	margin: 0.5rem auto;
+	border-radius: 0.3rem;
+	padding: 0.5rem 1rem;
+}
+
+.btn-container.th-2 {
+	background-color: colors.$bg-toggle-th2;
+}
+
+.btn-num.th-2 {
+	background-color: colors.$key-bg-light-th2;
+	color: colors.$text-primary-th2;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-light-th2;
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-light-th2, white, 20%);
+	}
+}
+
+.btn-delete.th-2 {
+	background-color: colors.$key-bg-dark-th2;
+	color: colors.$text-light-th2;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-dark-th2;
+	font-size: calc(font.$fs-base * 0.7);
+	font-weight: calc(font.$fw-base * 0.75);
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-dark-th2, white, 80%);
+	}
+}
+
+.btn-reset.th-2 {
+	background-color: colors.$key-bg-dark-th1;
+	color: colors.$text-light-th1;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-dark-th1;
+	font-size: calc(font.$fs-base * 0.7);
+	font-weight: calc(font.$fw-base * 0.75);
+	grid-column: span 2;
+	width: 4.25rem;
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-dark-th1, white, 80%);
+	}
+}
+
+.btn-equal.th-2 {
+	background-color: colors.$key-bg-toggle-th1;
+	color: colors.$text-light-th1;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-toggle-th1;
+	font-size: calc(font.$fs-base * 0.7);
+	font-weight: calc(font.$fw-base * 0.75);
+	grid-column: span 2;
+	width: 4.25rem;
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-toggle-th1, white, 80%);
+	}
+}
+
+.theme-selector.th-2 {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: colors.$bg-toggle-th1;
+	width: 2rem;
+	height: 0.25rem;
+}
+
+/* Theme 2 */
+
+.container.th-3 {
+	background-color: colors.$bg-primary-th3;
+	.title,
+	.theme-title {
+		color: colors.$text-primary-th3;
+	}
+}
+
+.title-container.th-3 {
+	.theme-selector {
+		background-color: colors.$bg-toggle-th3;
+		height: 0.6rem;
+		width: 2.5rem;
+		border-radius: 3rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+
+		span {
+			background-color: transparent;
+			height: 0.45rem;
+			width: 0.45rem;
+			border-radius: 50%;
+			position: relative;
+			cursor: pointer;
+		}
+
+		.selector-one.active {
+			background-color: colors.$key-bg-toggle-th3;
+		}
+		.selector-two.active {
+			background-color: colors.$key-bg-toggle-th3;
+		}
+		.selector-three.active {
+			background-color: colors.$key-bg-toggle-th3;
+		}
+
+		.selector-one::after {
+			content: '1';
+			position: absolute;
+			top: -0.5rem;
+			left: 0;
+			right: 0;
+			font-size: 0.4rem;
+			text-align: center;
+			color: colors.$text-primary-th3;
+		}
+		.selector-two::after {
+			content: '2';
+			position: absolute;
+			top: -0.5rem;
+			left: 0;
+			right: 0;
+			font-size: 0.4rem;
+			text-align: center;
+			color: colors.$text-primary-th3;
+		}
+		.selector-three::after {
+			content: '3';
+			position: absolute;
+			top: -0.5rem;
+			left: 0;
+			right: 0;
+			font-size: 0.4rem;
+			text-align: center;
+			color: colors.$text-primary-th3;
+		}
+	}
+}
+
+.calc-result.th-3 {
+	display: inline-block;
+	background-color: colors.$bg-screen-th3;
+	color: colors.$text-light-th3;
+	height: 2.5rem;
+	width: 10.25rem;
+	margin: 0.5rem auto;
+	border-radius: 0.3rem;
+	padding: 0.5rem 1rem;
+}
+
+.btn-container.th-3 {
+	background-color: colors.$bg-toggle-th3;
+}
+
+.btn-num.th-3 {
+	background-color: colors.$key-bg-light-th3;
+	color: colors.$text-primary-th3;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-light-th3;
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-light-th3, white, 20%);
+	}
+}
+
+.btn-delete.th-3 {
+	background-color: colors.$key-bg-dark-th3;
+	color: colors.$text-light-th3;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-dark-th3;
+	font-size: calc(font.$fs-base * 0.7);
+	font-weight: calc(font.$fw-base * 0.75);
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-dark-th3, white, 80%);
+	}
+}
+
+.btn-reset.th-3 {
+	background-color: colors.$key-bg-dark-th3;
+	color: colors.$text-light-th3;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-dark-th3;
+	font-size: calc(font.$fs-base * 0.7);
+	font-weight: calc(font.$fw-base * 0.75);
+	grid-column: span 2;
+	width: 4.25rem;
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-dark-th3, white, 80%);
+	}
+}
+
+.btn-equal.th-3 {
+	background-color: colors.$key-bg-toggle-th3;
+	color: colors.$text-light-th3;
+	text-align: center;
+	box-shadow: 0px 4px 0px -1px colors.$key-shadow-toggle-th3;
+	font-size: calc(font.$fs-base * 0.7);
+	font-weight: calc(font.$fw-base * 0.75);
+	grid-column: span 2;
+	width: 4.25rem;
+	&:hover,
+	&:focus {
+		background-color: mix(colors.$key-bg-toggle-th3, white, 80%);
+	}
+}
+
+.theme-selector.th-3 {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: colors.$bg-toggle-th3;
+	width: 2rem;
+	height: 0.25rem;
 }

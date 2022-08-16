@@ -6,18 +6,36 @@ import { useState } from 'react'
 
 function App() {
 	const [screenValue, setScreenValue] = useState('')
-	const theme = 'th-1'
+	const [theme, setTheme] = useState('th-1')
 	return (
 		<>
 			<Container theme={theme}>
-				<div className="title-container">
+				<div className={'title-container ' + theme}>
 					<h1 className="title">Calc</h1>
 					<div className="theme-selector-container">
-						<span className="theme-title">Theme</span>
+						<span className="theme-title">THEME</span>
 						<div className="theme-selector">
-							<span className="selector-one"></span>
-							<span className="selector-two"></span>
-							<span className="selector-three"></span>
+							<span
+								className={
+									'selector-one ' +
+									(theme === 'th-1' ? 'active' : '')
+								}
+								onClick={() => setTheme('th-1')}
+								></span>
+							<span
+								className={
+									'selector-two ' +
+									(theme === 'th-2' ? 'active' : '')
+								}
+								onClick={() => setTheme('th-2')}
+								></span>
+							<span
+								className={
+									'selector-three ' +
+									(theme === 'th-3' ? 'active' : '')
+								}
+								onClick={() => setTheme('th-3')}
+								></span>
 						</div>
 					</div>
 				</div>
