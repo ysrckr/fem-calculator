@@ -5,7 +5,7 @@ import Screen from './components/Screen'
 import { useState } from 'react'
 
 function App() {
-	const [screenValue, setScreenValue] = useState('0')
+	const [screenValue, setScreenValue] = useState([])
 	const [theme, setTheme] = useState('th-1')
 	return (
 		<>
@@ -38,21 +38,66 @@ function App() {
 				</div>
 				<Screen value={screenValue} theme={theme} />
 				<ButtonContainer theme={theme}>
-					<Button value="7" className="btn-num" theme={theme} />
-					<Button value="8" className="btn-num" theme={theme} />
-					<Button value="9" className="btn-num" theme={theme} />
+					<Button
+						value="7"
+						className="btn-num"
+						theme={theme}
+						screenValue={setScreenValue}
+					/>
+					<Button
+						value="8"
+						className="btn-num"
+						theme={theme}
+						screenValue={setScreenValue}
+					/>
+					<Button
+						value="9"
+						className="btn-num"
+						theme={theme}
+						screenValue={setScreenValue}
+					/>
 					<Button value="DEL" className="btn-delete" theme={theme} />
-					<Button value="4" className="btn-num" theme={theme} />
-					<Button value="5" className="btn-num" theme={theme} />
-					<Button value="6" className="btn-num" theme={theme} />
+					<Button
+						value="4"
+						className="btn-num"
+						theme={theme}
+						screenValue={setScreenValue}
+					/>
+					<Button
+						value="5"
+						className="btn-num"
+						theme={theme}
+						screenValue={setScreenValue}
+					/>
+					<Button
+						value="6"
+						className="btn-num"
+						theme={theme}
+						screenValue={setScreenValue}
+					/>
 					<Button
 						value="+"
 						className="btn-num btn-plus"
 						theme={theme}
 					/>
-					<Button value="1" className="btn-num" theme={theme} />
-					<Button value="2" className="btn-num" theme={theme} />
-					<Button value="3" className="btn-num" theme={theme} />
+					<Button
+						value="1"
+						className="btn-num"
+						theme={theme}
+						screenValue={setScreenValue}
+					/>
+					<Button
+						value="2"
+						className="btn-num"
+						theme={theme}
+						screenValue={setScreenValue}
+					/>
+					<Button
+						value="3"
+						className="btn-num"
+						theme={theme}
+						screenValue={setScreenValue}
+					/>
 					<Button
 						value="-"
 						className="btn-num btn-minus"
@@ -67,6 +112,7 @@ function App() {
 						value="0"
 						className="btn-num btn-zero"
 						theme={theme}
+						screenValue={setScreenValue}
 					/>
 
 					<Button
