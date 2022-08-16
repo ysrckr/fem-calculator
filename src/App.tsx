@@ -5,7 +5,7 @@ import Screen from './components/Screen'
 import { useState } from 'react'
 
 function App() {
-	const [screenValue, setScreenValue] = useState('')
+	const [screenValue, setScreenValue] = useState('0')
 	const [theme, setTheme] = useState('th-1')
 	return (
 		<>
@@ -20,22 +20,19 @@ function App() {
 									'selector-one ' +
 									(theme === 'th-1' ? 'active' : '')
 								}
-								onClick={() => setTheme('th-1')}
-								></span>
+								onClick={() => setTheme('th-1')}></span>
 							<span
 								className={
 									'selector-two ' +
 									(theme === 'th-2' ? 'active' : '')
 								}
-								onClick={() => setTheme('th-2')}
-								></span>
+								onClick={() => setTheme('th-2')}></span>
 							<span
 								className={
 									'selector-three ' +
 									(theme === 'th-3' ? 'active' : '')
 								}
-								onClick={() => setTheme('th-3')}
-								></span>
+								onClick={() => setTheme('th-3')}></span>
 						</div>
 					</div>
 				</div>
