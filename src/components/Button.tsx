@@ -1,31 +1,23 @@
 import { FC } from 'react'
 
+type ValueArg = string[] | ((a: string[]) => string[])
+
 type Props = {
 	value: string
 	className: string
 	theme: string
 	type: string
-	screenValue: any
-	operation?: any
+	setValue: (value: ValueArg) => void
 }
-const Button: FC<Props> = ({
-	value,
-	className,
-	theme,
-	screenValue,
-	type,
-	operation,
-}) => {
+const Button: FC<Props> = ({ value, className, theme, type, setValue }) => {
 	const handleClick = () => {
 		switch (type) {
 			case 'num':
-				screenValue((prev: string[]) => [...prev, value])
+				setValue((prev: string[]) => [...prev, value])
 				break
 			case 'point':
-				screenValue((prev: string[]) => [...prev, '.'])
 				break
 			case 'plus':
-				operation()
 				break
 			case 'minus':
 				break
@@ -36,10 +28,8 @@ const Button: FC<Props> = ({
 			case 'equal':
 				break
 			case 'reset':
-				screenValue([])
 				break
 			case 'delete':
-				screenValue((prev: string[]) => prev.slice(0, -1))
 				break
 			default:
 				throw new Error('Unknown type')

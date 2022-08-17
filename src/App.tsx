@@ -2,21 +2,13 @@ import Container from './components/Container'
 import ButtonContainer from './components/ButtonContainer'
 import Button from './components/Button'
 import Screen from './components/Screen'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 
-function App() {
+const App: FC = () => {
 	const [screenValue, setScreenValue] = useState<string[]>([])
-	const [operationValue, setOperationValue] = useState<string>('')
-	const [theme, setTheme] = useState('th-1')
-	const add = () => {
-		if (operationValue) {
-			const result = parseFloat(screenValue.join('')) + parseFloat(operationValue)
-			setScreenValue([result.toString()])
-		} else {
-			setOperationValue(screenValue.join(''))
-			setScreenValue([])
-		}
-	}
+	const [result, setResult] = useState<string[]>([])
+	const [theme, setTheme] = useState<string>('th-1')
+	const add = () => {}
 	return (
 		<>
 			<Container theme={theme}>
@@ -52,129 +44,128 @@ function App() {
 						value="7"
 						className="btn-num"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="num"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="8"
 						className="btn-num"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="num"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="9"
 						className="btn-num"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="num"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="DEL"
 						className="btn-delete"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="delete"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="4"
 						className="btn-num"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="num"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="5"
 						className="btn-num"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="num"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="6"
 						className="btn-num"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="num"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="+"
 						className="btn-num btn-plus"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="plus"
-						operation={add}
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="1"
 						className="btn-num"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="num"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="2"
 						className="btn-num"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="num"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="3"
 						className="btn-num"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="num"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="-"
 						className="btn-num btn-minus"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="minus"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="."
 						className="btn-num btn-point"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="point"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="0"
 						className="btn-num btn-zero"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="num"
+						setValue={setScreenValue}
 					/>
 
 					<Button
 						value="/"
 						className="btn-num btn-divide"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="divide"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="x"
 						className="btn-num btn-multiply"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="multiply"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="Reset"
 						className="btn-reset"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="reset"
+						setValue={setScreenValue}
 					/>
 					<Button
 						value="="
 						className="btn-equal"
 						theme={theme}
-						screenValue={setScreenValue}
 						type="equal"
+						setValue={setScreenValue}
 					/>
 				</ButtonContainer>
 			</Container>
