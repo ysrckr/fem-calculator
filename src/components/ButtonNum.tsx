@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { IAction, IState } from '../App'
+import { IAction, IState } from '../types/reducerTypes'
 
 
 type Props = {

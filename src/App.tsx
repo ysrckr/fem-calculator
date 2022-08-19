@@ -4,32 +4,11 @@ import ButtonNum from './components/ButtonNum'
 import ButtonOp from './components/ButtonOp'
 import Screen from './components/Screen'
 import { FC, useState, useReducer, Reducer } from 'react'
+import { IAction, IState } from './types/reducerTypes'
 
-export interface INumbers {
-	first: number
-	second: number
-}
 
-export interface IState {
-	screenValue: string
-	result: number
-	operator: string
-	numbers: INumbers
-}
 
-export interface IAction {
-	type:
-		| 'ADD'
-		| 'EQUAL'
-		| 'CLEAR'
-		| 'SET_SCREEN_VALUE'
-		| 'SET_RESULT'
-		| 'SET_OPERATOR'
-		| 'SET_NUMBER_FIRST'
-		| 'SET_NUMBER_SECOND'
-		| 'SET_NUMBERS'
-	payload?: string | number | INumbers
-}
+
 
 const initialState: IState = {
 	screenValue: '0',
