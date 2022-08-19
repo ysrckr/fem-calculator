@@ -1,28 +1,16 @@
 import { FC } from 'react'
+import { IAction, IState } from '../App'
 
-export type ValueArg = string | ((a: string) => string)
 
 type Props = {
-	value: string
+	state: IState
 	className: string
 	theme: string
-	screenValue: string
-	setScreenValue: (value: ValueArg) => void
+	value: string
+	dispatch: (action: IAction) => void
 }
-const ButtonNum: FC<Props> = ({
-	value,
-	className,
-	theme,
-	setScreenValue,
-	screenValue,
-}) => {
-	const handleClick = () => {
-		if (screenValue !== '0') {
-			setScreenValue(prev => prev + value)
-			return
-		}
-		setScreenValue(value)
-	}
+const ButtonNum: FC<Props> = ({ value, className, theme, state, dispatch }) => {
+	const handleClick = () => {}
 	return (
 		<span
 			className={'btn ' + className + ' ' + theme}
