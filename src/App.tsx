@@ -5,9 +5,19 @@ import ButtonOp from './components/ButtonOp'
 import Screen from './components/Screen'
 import { FC, useState } from 'react'
 
+export interface INumbers {
+	first: number
+	second: number
+}
+
 const App: FC = () => {
 	const [screenValue, setScreenValue] = useState<string>('0')
-	const [result, setResult] = useState<number[]>([])
+	const [result, setResult] = useState<number>(0)
+	const [numbers, setNumbers] = useState<INumbers>({
+		first: 0,
+		second: 0,
+	})
+	const [operator, setOperator] = useState<string>('')
 	const [theme, setTheme] = useState<string>('th-1')
 	return (
 		<>
@@ -69,6 +79,10 @@ const App: FC = () => {
 						screenValue={screenValue}
 						setResult={setResult}
 						result={result}
+						setOperator={setOperator}
+						operator={operator}
+						setNumbers={setNumbers}
+						numbers={numbers}
 					/>
 					<ButtonNum
 						value="4"
@@ -99,6 +113,10 @@ const App: FC = () => {
 						screenValue={screenValue}
 						setResult={setResult}
 						result={result}
+						setOperator={setOperator}
+						operator={operator}
+						setNumbers={setNumbers}
+						numbers={numbers}
 					/>
 					<ButtonNum
 						value="1"
@@ -129,15 +147,17 @@ const App: FC = () => {
 						screenValue={screenValue}
 						setResult={setResult}
 						result={result}
+						setOperator={setOperator}
+						operator={operator}
+						setNumbers={setNumbers}
+						numbers={numbers}
 					/>
-					<ButtonOp
+					<ButtonNum
 						value="."
 						className="btn-num btn-point"
 						theme={theme}
 						setScreenValue={setScreenValue}
 						screenValue={screenValue}
-						setResult={setResult}
-						result={result}
 					/>
 					<ButtonNum
 						value="0"
@@ -154,6 +174,10 @@ const App: FC = () => {
 						screenValue={screenValue}
 						setResult={setResult}
 						result={result}
+						setOperator={setOperator}
+						operator={operator}
+						setNumbers={setNumbers}
+						numbers={numbers}
 					/>
 					<ButtonOp
 						value="x"
@@ -163,6 +187,10 @@ const App: FC = () => {
 						screenValue={screenValue}
 						setResult={setResult}
 						result={result}
+						setOperator={setOperator}
+						operator={operator}
+						setNumbers={setNumbers}
+						numbers={numbers}
 					/>
 					<ButtonOp
 						value="Reset"
@@ -172,6 +200,10 @@ const App: FC = () => {
 						screenValue={screenValue}
 						setResult={setResult}
 						result={result}
+						setOperator={setOperator}
+						operator={operator}
+						setNumbers={setNumbers}
+						numbers={numbers}
 					/>
 					<ButtonOp
 						value="="
@@ -181,6 +213,10 @@ const App: FC = () => {
 						screenValue={screenValue}
 						setResult={setResult}
 						result={result}
+						setOperator={setOperator}
+						operator={operator}
+						setNumbers={setNumbers}
+						numbers={numbers}
 					/>
 				</ButtonContainer>
 			</Container>

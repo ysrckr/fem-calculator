@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { ValueArg } from './ButtonNum'
-
-type valueArgArr = number[] | ((a: number[]) => number[])
+import { INumbers } from '../App'
 
 type Props = {
 	value: string
@@ -9,8 +8,12 @@ type Props = {
 	theme: string
 	screenValue: string
 	setScreenValue: (value: ValueArg) => void
-	result: number[]
-	setResult: (value: valueArgArr) => void
+	result: number
+	setResult: (value: number) => void
+	operator: string
+	setOperator: (value: string) => void
+	numbers: INumbers
+	setNumbers: (value: INumbers) => void
 }
 
 const ButtonOp: FC<Props> = ({
@@ -21,14 +24,16 @@ const ButtonOp: FC<Props> = ({
 	setScreenValue,
 	result,
 	setResult,
+	operator,
+	setOperator,
+	numbers,
+	setNumbers,
 }) => {
-	const addToResult = () => {
+	const add = () => {
 		const screenValueNumber = +screenValue.replace(/,/g, '')
-		setResult(prev => [...prev, screenValueNumber])
 		setScreenValue('')
 	}
 	const handleClick = () => {
-        addToResult()
 		switch (value) {
 			case '+':
 				break
