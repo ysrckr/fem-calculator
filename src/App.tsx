@@ -1,14 +1,14 @@
 import Container from './components/Container'
 import ButtonContainer from './components/ButtonContainer'
-import Button from './components/Button'
+import ButtonNum from './components/ButtonNum'
+import ButtonOp from './components/ButtonOp'
 import Screen from './components/Screen'
 import { FC, useState } from 'react'
 
 const App: FC = () => {
-	const [screenValue, setScreenValue] = useState<string[]>([])
-	const [result, setResult] = useState<string[]>([])
+	const [screenValue, setScreenValue] = useState<string>('0')
+	const [result, setResult] = useState<number[]>([])
 	const [theme, setTheme] = useState<string>('th-1')
-	const add = () => {}
 	return (
 		<>
 			<Container theme={theme}>
@@ -40,132 +40,147 @@ const App: FC = () => {
 				</div>
 				<Screen value={screenValue} theme={theme} />
 				<ButtonContainer theme={theme}>
-					<Button
+					<ButtonNum
 						value="7"
 						className="btn-num"
 						theme={theme}
-						type="num"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
 					/>
-					<Button
+					<ButtonNum
 						value="8"
 						className="btn-num"
 						theme={theme}
-						type="num"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
 					/>
-					<Button
+					<ButtonNum
 						value="9"
 						className="btn-num"
 						theme={theme}
-						type="num"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
 					/>
-					<Button
+					<ButtonOp
 						value="DEL"
 						className="btn-delete"
 						theme={theme}
-						type="delete"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
+						setResult={setResult}
+						result={result}
 					/>
-					<Button
+					<ButtonNum
 						value="4"
 						className="btn-num"
 						theme={theme}
-						type="num"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
 					/>
-					<Button
+					<ButtonNum
 						value="5"
 						className="btn-num"
 						theme={theme}
-						type="num"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
 					/>
-					<Button
+					<ButtonNum
 						value="6"
 						className="btn-num"
 						theme={theme}
-						type="num"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
 					/>
-					<Button
+					<ButtonOp
 						value="+"
 						className="btn-num btn-plus"
 						theme={theme}
-						type="plus"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
+						setResult={setResult}
+						result={result}
 					/>
-					<Button
+					<ButtonNum
 						value="1"
 						className="btn-num"
 						theme={theme}
-						type="num"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
 					/>
-					<Button
+					<ButtonNum
 						value="2"
 						className="btn-num"
 						theme={theme}
-						type="num"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
 					/>
-					<Button
+					<ButtonNum
 						value="3"
 						className="btn-num"
 						theme={theme}
-						type="num"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
 					/>
-					<Button
+					<ButtonOp
 						value="-"
 						className="btn-num btn-minus"
 						theme={theme}
-						type="minus"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
+						setResult={setResult}
+						result={result}
 					/>
-					<Button
+					<ButtonOp
 						value="."
 						className="btn-num btn-point"
 						theme={theme}
-						type="point"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
+						setResult={setResult}
+						result={result}
 					/>
-					<Button
+					<ButtonNum
 						value="0"
 						className="btn-num btn-zero"
 						theme={theme}
-						type="num"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
 					/>
-
-					<Button
+					<ButtonOp
 						value="/"
 						className="btn-num btn-divide"
 						theme={theme}
-						type="divide"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
+						setResult={setResult}
+						result={result}
 					/>
-					<Button
+					<ButtonOp
 						value="x"
 						className="btn-num btn-multiply"
 						theme={theme}
-						type="multiply"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
+						setResult={setResult}
+						result={result}
 					/>
-					<Button
+					<ButtonOp
 						value="Reset"
 						className="btn-reset"
 						theme={theme}
-						type="reset"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
+						setResult={setResult}
+						result={result}
 					/>
-					<Button
+					<ButtonOp
 						value="="
 						className="btn-equal"
 						theme={theme}
-						type="equal"
-						setValue={setScreenValue}
+						setScreenValue={setScreenValue}
+						screenValue={screenValue}
+						setResult={setResult}
+						result={result}
 					/>
 				</ButtonContainer>
 			</Container>
