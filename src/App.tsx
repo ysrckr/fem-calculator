@@ -14,6 +14,7 @@ const initialState: IState = {
 }
 
 const reducer: Reducer<IState, Action> = (state, action) => {
+	let screenValueInt
 	switch (action.type) {
 		case 'SET_SCREEN_VALUE':
 			if (state.screenValue === '0') {
@@ -21,9 +22,7 @@ const reducer: Reducer<IState, Action> = (state, action) => {
 			}
 			return { ...state, screenValue: state.screenValue + action.payload }
 		case 'ADD':
-			const screenValueInt = parseFloat(
-				state.screenValue.replace(/,/g, ''),
-			)
+			screenValueInt = parseFloat(state.screenValue.replace(/,/g, ''))
 			if (state.numbers.first === 0) {
 				return {
 					...state,
@@ -35,6 +34,54 @@ const reducer: Reducer<IState, Action> = (state, action) => {
 				return {
 					...state,
 					operator: '+',
+					screenValue: '0',
+				}
+			}
+		case 'SUBTRACT':
+			screenValueInt = parseFloat(state.screenValue.replace(/,/g, ''))
+			if (state.numbers.first === 0) {
+				return {
+					...state,
+					operator: '-',
+					numbers: { first: screenValueInt, second: 0 },
+					screenValue: '0',
+				}
+			} else {
+				return {
+					...state,
+					operator: '-',
+					screenValue: '0',
+				}
+			}
+		case 'MULTIPILY':
+			screenValueInt = parseFloat(state.screenValue.replace(/,/g, ''))
+			if (state.numbers.first === 0) {
+				return {
+					...state,
+					operator: 'x',
+					numbers: { first: screenValueInt, second: 0 },
+					screenValue: '0',
+				}
+			} else {
+				return {
+					...state,
+					operator: 'x',
+					screenValue: '0',
+				}
+			}
+		case 'DIVIDE':
+			screenValueInt = parseFloat(state.screenValue.replace(/,/g, ''))
+			if (state.numbers.first === 0) {
+				return {
+					...state,
+					operator: '/',
+					numbers: { first: screenValueInt, second: 0 },
+					screenValue: '0',
+				}
+			} else {
+				return {
+					...state,
+					operator: '/',
 					screenValue: '0',
 				}
 			}
@@ -64,6 +111,87 @@ const reducer: Reducer<IState, Action> = (state, action) => {
 						numbers: {
 							first:
 								state.numbers.first +
+								parseFloat(state.screenValue.replace(/,/g, '')),
+							second: 0,
+						},
+					}
+				case '-':
+					if (state.numbers.first && state.numbers.second) {
+						const total = state.numbers.first - state.numbers.second
+						return {
+							...state,
+
+							screenValue: total.toString(),
+							numbers: {
+								first: total,
+								second: 0,
+							},
+						}
+					}
+
+					return {
+						...state,
+						screenValue: (
+							state.numbers.first -
+							parseFloat(state.screenValue.replace(/,/g, ''))
+						).toString(),
+						numbers: {
+							first:
+								state.numbers.first -
+								parseFloat(state.screenValue.replace(/,/g, '')),
+							second: 0,
+						},
+					}
+				case 'x':
+					if (state.numbers.first && state.numbers.second) {
+						const total = state.numbers.first * state.numbers.second
+						return {
+							...state,
+
+							screenValue: total.toString(),
+							numbers: {
+								first: total,
+								second: 0,
+							},
+						}
+					}
+
+					return {
+						...state,
+						screenValue: (
+							state.numbers.first *
+							parseFloat(state.screenValue.replace(/,/g, ''))
+						).toString(),
+						numbers: {
+							first:
+								state.numbers.first *
+								parseFloat(state.screenValue.replace(/,/g, '')),
+							second: 0,
+						},
+					}
+				case '/':
+					if (state.numbers.first && state.numbers.second) {
+						const total = state.numbers.first / state.numbers.second
+						return {
+							...state,
+
+							screenValue: total.toString(),
+							numbers: {
+								first: total,
+								second: 0,
+							},
+						}
+					}
+
+					return {
+						...state,
+						screenValue: (
+							state.numbers.first /
+							parseFloat(state.screenValue.replace(/,/g, ''))
+						).toString(),
+						numbers: {
+							first:
+								state.numbers.first /
 								parseFloat(state.screenValue.replace(/,/g, '')),
 							second: 0,
 						},

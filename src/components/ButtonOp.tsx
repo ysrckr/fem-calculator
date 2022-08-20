@@ -13,13 +13,22 @@ const ButtonOp: FC<Props> = ({ value, className, theme, state, dispatch }) => {
 	const handleClick = () => {
 		switch (value) {
 			case '+':
-				dispatch({ type: 'ADD'})
-                break
-            case '=':
-                dispatch({ type: 'EQUAL'})
-                break
-            default:
-                break
+				dispatch({ type: 'ADD' })
+				break
+			case '-':
+				dispatch({ type: 'SUBTRACT' })
+				break
+			case 'x':
+				dispatch({ type: 'MULTIPILY' })
+				break
+			case '/':
+				dispatch({ type: 'DIVIDE' })
+				break
+			case '=':
+				dispatch({ type: 'EQUAL' })
+				break
+			default:
+				break
 		}
 	}
 	return (
