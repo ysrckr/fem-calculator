@@ -5,19 +5,11 @@ export interface IState {
 	numbers: INumbers
 }
 
-export interface IAction {
-	type:
-		| 'ADD'
-		| 'EQUAL'
-		| 'CLEAR'
-		| 'SET_SCREEN_VALUE'
-		| 'SET_RESULT'
-		| 'SET_OPERATOR'
-		| 'SET_NUMBER_FIRST'
-		| 'SET_NUMBER_SECOND'
-		| 'SET_NUMBERS'
-	payload?: string | number | INumbers
-}
+export type Action =
+	| { type: 'SET_SCREEN_VALUE'; payload: string }
+	| { type: 'EQUAL' }
+	| { type: 'ADD' }
+	| { type: 'SET_NUMBERS'; payload: INumbers }
 
 export interface INumbers {
 	first: number

@@ -1,16 +1,17 @@
 import { FC } from 'react'
-import { IAction, IState } from '../types/reducerTypes'
-
+import { Action, IState } from '../types/reducerTypes'
 
 type Props = {
 	state: IState
 	className: string
 	theme: string
 	value: string
-	dispatch: (action: IAction) => void
+	dispatch: (action: Action) => void
 }
 const ButtonNum: FC<Props> = ({ value, className, theme, state, dispatch }) => {
-	const handleClick = () => {}
+	const handleClick = () => {
+		dispatch({ type: 'SET_SCREEN_VALUE', payload: value })
+	}
 	return (
 		<span
 			className={'btn ' + className + ' ' + theme}

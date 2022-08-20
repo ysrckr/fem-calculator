@@ -1,16 +1,27 @@
 import { FC } from 'react'
-import { IAction, IState } from '../types/reducerTypes'
+import { Action, IState } from '../types/reducerTypes'
 
 type Props = {
 	value: string
 	className: string
 	theme: string
 	state: IState
-	dispatch: (action: IAction) => void
+	dispatch: (action: Action) => void
 }
 
 const ButtonOp: FC<Props> = ({ value, className, theme, state, dispatch }) => {
-	const handleClick = () => {}
+	const handleClick = () => {
+		switch (value) {
+			case '+':
+				dispatch({ type: 'ADD'})
+                break
+            case '=':
+                dispatch({ type: 'EQUAL'})
+                break
+            default:
+                break
+		}
+	}
 	return (
 		<span
 			className={'btn ' + className + ' ' + theme}

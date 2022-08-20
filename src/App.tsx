@@ -4,11 +4,7 @@ import ButtonNum from './components/ButtonNum'
 import ButtonOp from './components/ButtonOp'
 import Screen from './components/Screen'
 import { FC, useState, useReducer, Reducer } from 'react'
-import { IAction, IState } from './types/reducerTypes'
-
-
-
-
+import { Action, IState } from './types/reducerTypes'
 
 const initialState: IState = {
 	screenValue: '0',
@@ -17,10 +13,63 @@ const initialState: IState = {
 	numbers: { first: 0, second: 0 },
 }
 
-const reducer: Reducer<IState, IAction> = (state, action) => {
+const reducer: Reducer<IState, Action> = (state, action) => {
 	switch (action.type) {
+		case 'SET_SCREEN_VALUE':
+			if (state.screenValue === '0') {
+				return { ...state, screenValue: action.payload }
+			}
+			return { ...state, screenValue: state.screenValue + action.payload }
 		case 'ADD':
-			return { ...state }
+			const screenValueInt = parseFloat(
+				state.screenValue.replace(/,/g, ''),
+			)
+			if (state.numbers.first === 0) {
+				return {
+					...state,
+					operator: '+',
+					numbers: { first: screenValueInt, second: 0 },
+					screenValue: '0',
+				}
+			} else {
+				return {
+					...state,
+					operator: '+',
+					screenValue: '0',
+				}
+			}
+
+		case 'EQUAL':
+			switch (state.operator) {
+				case '+':
+					if (state.numbers.first && state.numbers.second) {
+						const total = state.numbers.first + state.numbers.second
+						return {
+							...state,
+
+							screenValue: total.toString(),
+							numbers: {
+								first: total,
+								second: 0,
+							},
+						}
+					}
+
+					return {
+						...state,
+						screenValue: (
+							state.numbers.first +
+							parseFloat(state.screenValue.replace(/,/g, ''))
+						).toString(),
+						numbers: {
+							first:
+								state.numbers.first +
+								parseFloat(state.screenValue.replace(/,/g, '')),
+							second: 0,
+						},
+					}
+			}
+
 		default:
 			return state
 	}
@@ -66,7 +115,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
 					/>
 					<ButtonNum
 						value="8"
@@ -81,7 +129,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
 					/>
 					<ButtonOp
 						value="DEL"
@@ -89,8 +136,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
-						
 					/>
 					<ButtonNum
 						value="4"
@@ -98,7 +143,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
 					/>
 					<ButtonNum
 						value="5"
@@ -106,7 +150,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
 					/>
 					<ButtonNum
 						value="6"
@@ -114,7 +157,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
 					/>
 					<ButtonOp
 						value="+"
@@ -122,7 +164,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
 					/>
 					<ButtonNum
 						value="1"
@@ -151,7 +192,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
 					/>
 					<ButtonNum
 						value="."
@@ -173,7 +213,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
 					/>
 					<ButtonOp
 						value="x"
@@ -181,7 +220,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
 					/>
 					<ButtonOp
 						value="Reset"
@@ -189,7 +227,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-					
 					/>
 					<ButtonOp
 						value="="
@@ -197,7 +234,6 @@ const App: FC = () => {
 						theme={theme}
 						state={state}
 						dispatch={dispatch}
-						
 					/>
 				</ButtonContainer>
 			</Container>
