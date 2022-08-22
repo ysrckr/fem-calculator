@@ -27,6 +27,12 @@ const ButtonOp: FC<Props> = ({ value, className, theme, state, dispatch }) => {
 			case '=':
 				dispatch({ type: 'EQUAL' })
 				break
+			case 'DEL':
+				dispatch({ type: 'DELETE' })
+				break
+			case 'Reset':
+				dispatch({ type: 'RESET' })
+				break
 			default:
 				break
 		}

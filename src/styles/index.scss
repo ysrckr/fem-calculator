@@ -22,9 +22,15 @@ h1 {
 
 .container {
 	min-width: 375px;
-	padding: 0.75rem;
-	overflow-x: hidden;
+	padding: 1.25rem 0.75rem;
+	overflow: hidden;
 	height: 100vh;
+}
+
+.calc-container {
+	max-width: 375px;
+	background-color: inherit;
+	margin-inline: auto;
 }
 
 .title-container {
@@ -112,6 +118,7 @@ h1 {
 	line-height: 2rem;
 	cursor: pointer;
 	text-align: center;
+	user-select: none;
 }
 
 .btn-delete {
@@ -134,15 +141,49 @@ h1 {
 }
 
 .calc-result {
-	display: inline-block;
+	display: block;
 	height: 2.5rem;
-	width: 10.25rem;
+	min-width: 10.25rem;
 	margin: 0.5rem auto;
 	border-radius: 0.3rem;
 	padding: 0.5rem 1rem;
 	text-align: right;
 	font-size: calc(font.$fs-base * 1.8);
 	line-height: calc(font.$fs-base * 1.8);
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+	.container {
+		padding: 3.5rem 1rem;
+	}
+	.calc-container {
+		max-width: 500px;
+	}
+
+	.btn-container {
+		height: 100%;
+	}
+
+	.btn {
+		width: 3rem;
+		line-height: 1.75;
+		font-size: calc(font.$fs-base * 1.3);
+		margin-bottom: .5rem;
+		
+	}
+
+	.btn-reset {
+		width: 6.5rem;
+	}
+	.btn-equal {
+		width: 6.5rem;
+	}
+	.calc-result {
+		height: 4rem;
+		font-size: calc(font.$fs-base * 2.75);
+		line-height: calc(font.$fs-base * 3.5);
+	}
 }
 
 /* Theme 1 */

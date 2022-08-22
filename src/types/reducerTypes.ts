@@ -14,7 +14,7 @@ export type Action =
 	| { type: 'DIVIDE' }
 	| { type: 'DELETE' }
 	| { type: 'RESET' }
-	| { type: 'SET_NUMBERS'; payload: INumbers }
+	
 
 export interface INumbers {
 	first: number
